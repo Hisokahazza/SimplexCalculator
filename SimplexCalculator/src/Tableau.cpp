@@ -1,5 +1,9 @@
 #include "Tableau.h"
 
+Tableau::Tableau(size_t rows, size_t columns, const std::vector<std::vector<float>>& tableau) : m_Rows(rows), m_Columns(columns), m_Tableau(tableau)
+{
+}
+
 void Tableau::outputTableau()
 {
 	for (size_t i = 0; i < m_Columns - 1; i++)

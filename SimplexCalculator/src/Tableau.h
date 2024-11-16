@@ -12,9 +12,7 @@ private:
 	const size_t m_Rows;
 	const size_t m_Columns;
 public:
-	Tableau(size_t rows = 0, size_t columns = 0, const std::vector<std::vector<float>>& tableau = {}) : m_Rows(rows), m_Columns(columns), m_Tableau(tableau)
-	{
-	}
+	Tableau(size_t rows = 0, size_t columns = 0, const std::vector<std::vector<float>>& tableau = {});
 
 	void outputTableau();
 
