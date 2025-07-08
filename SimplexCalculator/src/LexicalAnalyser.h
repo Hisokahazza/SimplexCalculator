@@ -32,9 +32,9 @@ private:
 	bool isDigit(char c);
 	std::string getNextNumber();
 public:
-	LexicalAnalyser(std::string input);
+	LexicalAnalyser();
 
-	std::vector<Token> tokenize();
-	void outputTokens();
+	std::vector<Token> tokenize(std::string input);
+	void outputTokens(std::string input);
 };
 

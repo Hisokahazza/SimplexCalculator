@@ -1,6 +1,6 @@
 #include "LexicalAnalyser.h"
 
-LexicalAnalyser::LexicalAnalyser(std::string input) : m_Input(input), m_Position(0)
+LexicalAnalyser::LexicalAnalyser() : m_Position(0)
 {
 }
 
@@ -38,7 +38,7 @@ std::string LexicalAnalyser::getNextNumber()
 	return m_Input.substr(start, m_Position - start);;
 }
 
-std::vector<Token> LexicalAnalyser::tokenize()
+std::vector<Token> LexicalAnalyser::tokenize(std::string input)
 {
 	std::vector<Token> tokens;
 
@@ -88,9 +88,9 @@ std::vector<Token> LexicalAnalyser::tokenize()
 	return tokens;
 }
 
-void LexicalAnalyser::outputTokens()
+void LexicalAnalyser::outputTokens(std::string input)
 {
-	std::vector<Token> tokens = tokenize();
+	std::vector<Token> tokens = tokenize(input);
 
 	for (auto token : tokens)
 	{
