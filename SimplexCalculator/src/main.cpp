@@ -3,8 +3,6 @@
 
 int main()
 {
-	bool isUniform = false;
-
 	std::vector<std::vector<float>> vecTest = {{ 1, 1, 1 }, { 2, 1, 3}};
 
 	Tableau tableau(vecTest);
