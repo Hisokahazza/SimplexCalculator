@@ -9,10 +9,11 @@ class Tableau
 {
 private:
 	std::vector<std::vector<float>> m_Tableau;
-	const size_t m_Rows;
-	const size_t m_Columns;
+	size_t m_Rows;
+	size_t m_Columns;
+	bool m_IsUniform();
 public:
-	Tableau(size_t rows = 0, size_t columns = 0, const std::vector<std::vector<float>>& tableau = {});
+	Tableau(const std::vector<std::vector<float>>& tableau = {});
 
 	void outputTableau();
 

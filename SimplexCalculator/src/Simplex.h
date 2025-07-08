@@ -5,7 +5,7 @@
 class Simplex
 {
 private:
-	Tableau tableau;
+	Tableau m_Tableau;
 public:
 	Simplex();
 };

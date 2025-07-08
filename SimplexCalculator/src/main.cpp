@@ -3,14 +3,16 @@
 
 int main()
 {
-	/*std::vector<std::vector<float>> vecTest = {{ 1, 1, 1 }, { 1, 1, 1 }};
+	bool isUniform = false;
 
-	Tableau tableau(2, 3, vecTest);
+	std::vector<std::vector<float>> vecTest = {{ 1, 1, 1 }, { 2, 1, 3}};
 
-	tableau.addRow(1, 2);
-	tableau.outputTableau();*/
+	Tableau tableau(vecTest);
 
-	LexicalAnalyser lexicalAnalyser("2.3x + 3.8 - 9.9 >= 19999.9");
+	tableau.addRowMultiple(0, 1, 2);
+	tableau.outputTableau();
 
-	lexicalAnalyser.outputTokens();
+	/*LexicalAnalyser lexicalAnalyser("2.3x + 3.8 - 9.9 >= 19999.9");
+
+	lexicalAnalyser.outputTokens();*/
 }

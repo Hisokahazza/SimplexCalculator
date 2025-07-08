@@ -1,7 +1,34 @@
 #include "Tableau.h"
 
-Tableau::Tableau(size_t rows, size_t columns, const std::vector<std::vector<float>>& tableau) : m_Rows(rows), m_Columns(columns), m_Tableau(tableau)
+bool Tableau::m_IsUniform()
 {
+	for (auto& row : m_Tableau)
+	{
+		if (row.size() != m_Columns)
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
+Tableau::Tableau(const std::vector<std::vector<float>>& tableau) : m_Tableau(tableau)
+{
+	if (m_Tableau.empty())
+	{
+		m_Rows = 0;
+		m_Columns = 0;
+	}
+	else
+	{
+		m_Rows = m_Tableau.size();
+		m_Columns = m_Tableau[0].size();
+	}
+
+	if (!m_IsUniform())
+	{
+		throw std::invalid_argument("Vector is non-uniform");
+	}
 }
 
 void Tableau::outputTableau()
