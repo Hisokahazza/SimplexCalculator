@@ -1,5 +1,4 @@
-#include "Tableau.h"
-#include "LexicalAnalyser.h"
+#include "TableauGenerator.h"
 
 int main()
 {
@@ -7,10 +6,11 @@ int main()
 
 	Tableau tableau(vecTest);
 
-	tableau.addRowMultiple(0, 1, 2);
-	tableau.outputTableau();
+	std::vector<std::string> constraints = { "3x + 5y + 6z <= 20", "4z + 3y + 5x + 6x >= 10" };
+	std::string objectiveFunction = "5x + 3y + 4z = 50";
 
-	/*LexicalAnalyser lexicalAnalyser("2.3x + 3.8 - 9.9 >= 19999.9");
+	LexicalAnalyser lexicalAnalyser;
 
-	lexicalAnalyser.outputTokens();*/
+	TableauGenerator tableauGenerator(constraints, objectiveFunction, true);
+	tableauGenerator.generateTableau();
 }

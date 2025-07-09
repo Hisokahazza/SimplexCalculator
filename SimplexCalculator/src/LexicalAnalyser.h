@@ -26,15 +26,15 @@ struct Token
 class LexicalAnalyser
 {
 private:
-	const std::string m_Input;
 	size_t m_Position;
 
 	bool isDigit(char c);
-	std::string getNextNumber();
+	std::string getNextNumber(std::string input);
+	void m_Reset();
 public:
 	LexicalAnalyser();
 
-	std::vector<Token> tokenize(std::string input);
+	std::vector<Token> tokenise(std::string input);
 	void outputTokens(std::string input);
 };
 

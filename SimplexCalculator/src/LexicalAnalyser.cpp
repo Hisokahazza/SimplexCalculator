@@ -16,14 +16,14 @@ bool LexicalAnalyser::isDigit(char c)
 	}
 }
 
-std::string LexicalAnalyser::getNextNumber()
+std::string LexicalAnalyser::getNextNumber(std::string input)
 {
 	int start = m_Position;
 	bool hasDecimal = false;
 
-	while (m_Position < m_Input.length() && (isDigit(m_Input[m_Position]) || m_Input[m_Position] == '.'))
+	while (m_Position < input.length() && (isDigit(input[m_Position]) || input[m_Position] == '.'))
 	{
-		if (m_Input[m_Position] == '.')
+		if (input[m_Position] == '.')
 		{
 			if (hasDecimal)
 			{
@@ -35,16 +35,22 @@ std::string LexicalAnalyser::getNextNumber()
 		m_Position++;
 	}
 
-	return m_Input.substr(start, m_Position - start);;
+	m_Position--;
+	return input.substr(start, m_Position - start + 1);;
 }
 
-std::vector<Token> LexicalAnalyser::tokenize(std::string input)
+void LexicalAnalyser::m_Reset()
+{
+	m_Position = 0;
+}
+
+std::vector<Token> LexicalAnalyser::tokenise(std::string input)
 {
 	std::vector<Token> tokens;
 
-	while (m_Position < m_Input.length())
+	while (m_Position < input.length())
 	{
-		char currentChar = m_Input[m_Position];
+		char currentChar = input[m_Position];
 
 		if (currentChar == ' ' || currentChar == '=')
 		{
@@ -58,7 +64,7 @@ std::vector<Token> LexicalAnalyser::tokenize(std::string input)
 		}
 		else if (isDigit(currentChar))
 		{
-			std::string number = getNextNumber();
+			std::string number = getNextNumber(input);
 			if (number.find('.') != std::string::npos)
 			{
 				tokens.emplace_back(TokenType::FLOAT_LITERAL, number);
@@ -85,12 +91,13 @@ std::vector<Token> LexicalAnalyser::tokenize(std::string input)
 		m_Position++;
 	}
 
+	m_Reset();
 	return tokens;
 }
 
 void LexicalAnalyser::outputTokens(std::string input)
 {
-	std::vector<Token> tokens = tokenize(input);
+	std::vector<Token> tokens = tokenise(input);
 
 	for (auto token : tokens)
 	{

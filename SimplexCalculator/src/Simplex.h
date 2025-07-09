@@ -1,6 +1,6 @@
 #pragma once
 
-#include "tableau.h"
+#include "Tableau.h"
 
 class Simplex
 {

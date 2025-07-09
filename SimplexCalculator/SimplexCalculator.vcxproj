@@ -130,6 +130,7 @@
     <ClInclude Include="src\LexicalAnalyser.h" />
     <ClInclude Include="src\Simplex.h" />
     <ClInclude Include="src\Tableau.h" />
+    <ClInclude Include="src\TableauGenerator.h" />
     <ClInclude Include="src\Vec.h" />
   </ItemGroup>
   <ItemGroup>
@@ -137,6 +138,7 @@
     <ClCompile Include="src\Simplex.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Tableau.cpp" />
+    <ClCompile Include="src\TableauGenerator.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
